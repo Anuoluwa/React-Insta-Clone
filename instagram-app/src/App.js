@@ -22,7 +22,7 @@ export class App extends Component {
         {
           dummyData.map((data) =>{
         return (
-          <PostContainer 
+          <PostContainer key={data.username} 
             dummyData={data}
           />
         )
