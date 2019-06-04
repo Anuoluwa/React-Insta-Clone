@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-around;
     width: 100%;
-    border-bottom: 1px solid #a7a9ac;
+    border-bottom: 0.5rem solid #e2e3e4;
   }
   
   .logo {
@@ -19,7 +19,7 @@
     padding: 0 1rem;
     font-family: 'Rochester', cursive;
     font-weight: bolder;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
   
   .searchInput {

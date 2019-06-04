@@ -23,7 +23,7 @@ export class App extends Component {
           dummyData.map((data) =>{
         return (
           <PostContainer key={data.username} 
-            dummyData={data}
+            data={data}
           />
         )
       })

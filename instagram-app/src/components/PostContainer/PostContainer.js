@@ -1,18 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CommentSection from '../CommentSection/CommentSection';
 import moment from "moment";
 import PropTypes from "prop-types";
+import "./PostContainer.css";
 import NewComment from "../CommentSection/NewComment";
 
 
-function PostContainer(props) {
+function PostContainer({ data }) {
     const [comment, setComment] = useState({});
     const [commentArr, setCommentArr] = useState(data.comments);
   
     const handleClick = e => {
       if (e.key === "Enter") {
         let newComment = {
-          username: "annonymous",
+          username: "username",
           text: e.target.value
         };
         setComment(newComment);
