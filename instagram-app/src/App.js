@@ -4,7 +4,6 @@ import './App.css';
 import dummyData from './dummy-data';
 import PostContainer from './components/PostContainer/PostContainer';
 import SearchBar from "./components/SearchBar/SearchBar";
-import { Triple } from "react-preloading-component";
 
 
 
@@ -49,20 +48,6 @@ export class App extends Component {
       return this.setState({ data });
     }
   };
-
-  handleClick = (e, index) => {
-    if (e.key === "Enter") {
-      let newComment = {
-        username: "annonymous",
-        text: e.target.value
-      };
-      let { data } = this.state;
-      data[index].comments = data[index].comments.concat(newComment);
-      this.setPostData(data);
-      this.setState({ data });
-    }
-  };
-
   handleSearch = e => {
     this.setState({ data: this.getPostsData() });
     let searchData = e.target.value;
@@ -78,6 +63,21 @@ export class App extends Component {
       this.setState({ data: newData });
     }
   };
+
+  handleClick = (e, index) => {
+    if (e.key === "Enter") {
+      let newComment = {
+        username: "username",
+        text: e.target.value
+      };
+      let { data } = this.state;
+      data[index].comments = data[index].comments.concat(newComment);
+      this.setPostData(data);
+      this.setState({ data });
+    }
+  };
+
+  
   
   render() {
     if (this.state.data.length > 0) {
@@ -103,7 +103,6 @@ export class App extends Component {
       <>
         <SearchBar handleSearch={this.handleSearch} />
         <div className="preloader">
-          <Triple color="#a7a9ac" size={80} />
         </div>
       </>
     );

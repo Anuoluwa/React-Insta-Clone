@@ -6,10 +6,9 @@ import "./PostContainer.css";
 import NewComment from "../CommentSection/NewComment";
 
 
-function PostContainer({ data, index, handleLike }) {
+function PostContainer({ data, index, handleClick, handleLike }) {
     // const [comment, setComment] = useState({});
     // const [commentArr, setCommentArr] = useState(data.comments);
-
     let like = (
         <i
           className="far fa-heart fa-2x"
@@ -68,13 +67,13 @@ function PostContainer({ data, index, handleLike }) {
           <i className="far fa-comment fa-2x" />
           <p>{data.likes} likes</p>
         </div>
-        {commentArr.map(comment => {
+        {data.comments.map(comment => {
           return <CommentSection key={comment.text} commentData={comment} />;
         })}
         <div className="card-time">
           <p>{convertTime(data.timestamp)}</p>
         </div>
-        <NewComment handleClick={handleClick} value={comment} />
+        <NewComment handleClick={handleClick} value={index} />
       </div>
     </div>
   );
