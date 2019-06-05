@@ -5,7 +5,7 @@ export default function SearchBar({handleSearch}) {
   return (
     <div className="searchBar">
       <div className="logo">
-        <i className="fab fa-instagram fa-3x" />
+        <i className="fab fa-instagram fa-2x" />
         <hr />
         <p>Instagram</p>
       </div>
