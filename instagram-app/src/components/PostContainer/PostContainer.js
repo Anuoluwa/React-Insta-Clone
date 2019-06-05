@@ -6,21 +6,40 @@ import "./PostContainer.css";
 import NewComment from "../CommentSection/NewComment";
 
 
-function PostContainer({ data }) {
-    const [comment, setComment] = useState({});
-    const [commentArr, setCommentArr] = useState(data.comments);
-  
-    const handleClick = e => {
-      if (e.key === "Enter") {
-        let newComment = {
-          username: "username",
-          text: e.target.value
-        };
-        setComment(newComment);
-        let newCommentArr = commentArr.concat(newComment);
-        setCommentArr(newCommentArr);
+function PostContainer({ data, index, handleLike }) {
+    // const [comment, setComment] = useState({});
+    // const [commentArr, setCommentArr] = useState(data.comments);
+
+    let like = (
+        <i
+          className="far fa-heart fa-2x"
+          onClick={() => {
+            handleLike(index);
+          }}
+        />
+      );
+      if (data.isLiked === true) {
+        like = (
+          <i
+            className="fas fa-heart fa-2x"
+            onClick={() => {
+              handleLike(index);
+            }}
+          />
+        );
       }
-    };
+  
+    // const handleClick = e => {
+    //   if (e.key === "Enter") {
+    //     let newComment = {
+    //       username: "username",
+    //       text: e.target.value
+    //     };
+    //     setComment(newComment);
+    //     let newCommentArr = commentArr.concat(newComment);
+    //     setCommentArr(newCommentArr);
+    //   }
+    // };
     const convertTime = time => {
       let newTimeArr = time.split(" ");
       newTimeArr[1] = newTimeArr[1].slice(0, -2);
@@ -45,7 +64,7 @@ function PostContainer({ data }) {
         </div>
 
         <div className="card-footer">
-          <i className="far fa-heart fa-2x" />
+            {like}
           <i className="far fa-comment fa-2x" />
           <p>{data.likes} likes</p>
         </div>

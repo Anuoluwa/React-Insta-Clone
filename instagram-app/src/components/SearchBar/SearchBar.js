@@ -1,7 +1,7 @@
 import React from "react";
 import "./SearchBar.css";
 
-export default function SearchBar() {
+export default function SearchBar({handleSearch}) {
   return (
     <div className="searchBar">
       <div className="logo">
@@ -12,7 +12,7 @@ export default function SearchBar() {
 
       <div className="searchInput">
         <i className="fas fa-search" />
-        <input placeholder="Search" />
+        <input placeholder="Search" onKeyUp={handleSearch} />
       </div>
 
       <div className="searchContent">

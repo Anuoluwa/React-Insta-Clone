@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-around;
     width: 100%;
-    border-bottom: 0.5rem solid #e2e3e4;
+    border-bottom: 0.2rem solid #e2e3e4;
   }
   
   .logo {
@@ -23,19 +23,19 @@
   }
   
   .searchInput {
-    border: 1px solid #a7a9ac;
+    border: 1px solid #e2e3e4;
     align-items: center;
-    display: flex;
-    border-radius: 0.2rem;
-    height: 2rem;
-    text-align: center;
     align-items: center;
     justify-content: center;
     width: 20%;
     margin-top: 2rem;
+    display: flex;
+    border-radius: 0.2rem;
+    height: 2rem;
+    text-align: center;
   }
   .searchInput i {
-    color: #a7a9ac;
+    color: #e2e3e4;
     padding: 0 0.3rem 0 5rem;
     text-align: center;
     align-items: center;
@@ -50,7 +50,7 @@
   
   .searchContent i {
     padding: 0 1rem;
-    color: #a7a9ac;
+    color: #c0c5cb;
     border: none;
     margin-top: 2rem;
   }
