@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import PostContainer from "./PostContainer";
-
 import dummyData from "../../dummy-data";
 
 export default class PostsPage extends Component {
@@ -44,10 +43,11 @@ export default class PostsPage extends Component {
     }
   };
 
+  
   handleClick = (e, index) => {
     if (e.key === "Enter") {
       let newComment = {
-        username: localStorage.getItem('token') || 'anonymous',
+        username: localStorage.getItem("token"),
         text: e.target.value
       };
       let { data } = this.state;
@@ -55,7 +55,8 @@ export default class PostsPage extends Component {
       this.setPostData(data);
       this.setState({ data });
     }
-  };
+};
+
 
   handleSearch = e => {
     this.setState({ data: this.getPostsData() });
