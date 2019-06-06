@@ -2,10 +2,9 @@ import React, { Component } from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import PostContainer from "./PostContainer";
 import dummyData from "../../dummy-data";
-
 export default class PostsPage extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       data: []
     };
@@ -51,6 +50,7 @@ export default class PostsPage extends Component {
         text: e.target.value
       };
       let { data } = this.state;
+      console.log(newComment)
       data[index].comments = data[index].comments.concat(newComment);
       this.setPostData(data);
       this.setState({ data });
@@ -74,10 +74,11 @@ export default class PostsPage extends Component {
   };
 
   render() {
+    
     if (this.state.data.length > 0) {
       return (
         <div className="App">
-          <SearchBar handleSearch={this.handleSearch} />
+        <SearchBar handleSearch={this.handleSearch} />
           {this.state.data.map((data, i) => {
             return (
               <PostContainer
@@ -93,10 +94,40 @@ export default class PostsPage extends Component {
         </div>
       );
     }
-    return (
-      <>
-        <SearchBar handleSearch={this.handleSearch} />
-      </>
-    );
+
+    if (this.state.data.length === 0) {
+      return (
+        <div>
+          <p>No Post Found</p>
+        </div>
+      );
+    }
   }
+
+//   render() {
+//     if (this.state.data.length > 0) {
+//       return (
+//         <div className="App">
+//           <SearchBar handleSearch={this.handleSearch} />
+//           {this.state.data.map((data, i) => {
+//             return (
+//               <PostContainer
+//                 key={data.username}
+//                 data={data}
+//                 handleLike={this.handleLike}
+//                 index={i}
+//                 setPostData={this.setPostData}
+//                 handleClick={this.handleClick}
+//               />
+//             );
+//           })}
+//         </div>
+//       );
+//     }
+//     return (
+//       <>
+//         <SearchBar handleSearch={this.handleSearch} />
+//       </>
+//     );
+//   }
 }

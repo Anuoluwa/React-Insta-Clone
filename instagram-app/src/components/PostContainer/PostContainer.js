@@ -58,7 +58,7 @@ function PostContainer({ data, index, handleClick, handleLike }) {
         <div className="card-time">
           <p>{convertTime(data.timestamp)}</p>
         </div>
-        <NewComment handleClick={handleClick} value={index} />
+        <NewComment handleClick={handleClick} index={index} />
       </div>
     </div>
   );

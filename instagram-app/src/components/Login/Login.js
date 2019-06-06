@@ -16,7 +16,7 @@ export default function Login() {
   };
 
   return (
-    <>
+    <div>
       <div className="login">
         <h2>Instagram</h2>
         <div className="login-form">
@@ -37,16 +37,16 @@ export default function Login() {
           </form>
 
           <h6>
-            <a href="#">Forgot Password?</a>
+            <a href="#1">Forgot Password?</a>
           </h6>
         </div>
       </div>
 
       <div className="signup">
         <p>Don't have an account? </p>
-        <a href="#">Sign Up</a>
+        <a href="#1">Sign Up</a>
       </div>
 
-    </>
+    </div>
   );
 }

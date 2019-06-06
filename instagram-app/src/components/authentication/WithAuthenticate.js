@@ -11,11 +11,11 @@ export const withAuthenticate = PostsPage => Login =>
 
     componentDidMount() {
       let token = localStorage.getItem("token");
-      return this.setState({ loogedIn: token !== null });
+      return this.setState({ loggedIn: token !== null });
     }
 
     render() {
-      if (this.state.loogedIn === true) {
+      if (this.state.loggedIn === true) {
         return <PostsPage {...this.props} />;
       } else {
         return <Login {...this.props} />;
