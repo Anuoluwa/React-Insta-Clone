@@ -95,7 +95,7 @@ export default class PostsPage extends Component {
     }
     return (
       <>
-        {/* <SearchBar handleSearch={this.handleSearch} /> */}
+        <SearchBar handleSearch={this.handleSearch} />
       </>
     );
   }
