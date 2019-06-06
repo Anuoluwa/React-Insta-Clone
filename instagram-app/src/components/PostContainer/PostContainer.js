@@ -1,56 +1,41 @@
-import React, { useState } from 'react';
-import CommentSection from '../CommentSection/CommentSection';
+import React from "react";
+import CommentSection from "../CommentSection/CommentSection";
 import moment from "moment";
 import PropTypes from "prop-types";
 import "./PostContainer.css";
 import NewComment from "../CommentSection/NewComment";
 
-
 function PostContainer({ data, index, handleClick, handleLike }) {
-    // const [comment, setComment] = useState({});
-    // const [commentArr, setCommentArr] = useState(data.comments);
-    let like = (
-        <i
-          className="far fa-heart fa-2x"
-          onClick={() => {
-            handleLike(index);
-          }}
-        />
-      );
-      if (data.isLiked === true) {
-        like = (
-          <i
-            className="fas fa-heart fa-2x"
-            onClick={() => {
-              handleLike(index);
-            }}
-          />
-        );
-      }
-  
-    // const handleClick = e => {
-    //   if (e.key === "Enter") {
-    //     let newComment = {
-    //       username: "username",
-    //       text: e.target.value
-    //     };
-    //     setComment(newComment);
-    //     let newCommentArr = commentArr.concat(newComment);
-    //     setCommentArr(newCommentArr);
-    //   }
-    // };
-    const convertTime = time => {
-      let newTimeArr = time.split(" ");
-      newTimeArr[1] = newTimeArr[1].slice(0, -2);
-      newTimeArr = newTimeArr.join(" ");
-      let newTime = Date.parse(newTimeArr);
-  
-      return moment(newTime)
-        .startOf("day")
-        .fromNow();
-    };
+  let like = (
+    <i
+      className="far fa-heart fa-2x"
+      onClick={() => {
+        handleLike(index);
+      }}
+    />
+  );
+  if (data.isLiked === true) {
+    like = (
+      <i
+        className="fas fa-heart fa-2x"
+        onClick={() => {
+          handleLike(index);
+        }}
+      />
+    );
+  }
 
-     
+  const convertTime = time => {
+    let newTimeArr = time.split(" ");
+    newTimeArr[1] = newTimeArr[1].slice(0, -2);
+    newTimeArr = newTimeArr.join(" ");
+    let newTime = Date.parse(newTimeArr);
+
+    return moment(newTime)
+      .startOf("day")
+      .fromNow();
+  };
+
   return (
     <div className="postContainer">
       <div className="card">
@@ -63,7 +48,7 @@ function PostContainer({ data, index, handleClick, handleLike }) {
         </div>
 
         <div className="card-footer">
-            {like}
+          {like}
           <i className="far fa-comment fa-2x" />
           <p>{data.likes} likes</p>
         </div>
@@ -80,14 +65,14 @@ function PostContainer({ data, index, handleClick, handleLike }) {
 }
 
 PostContainer.propTypes = {
-    data: PropTypes.shape({
-      username: PropTypes.string.isRequired,
-      imageUrl: PropTypes.string.isRequired,
-      likes: PropTypes.number.isRequired,
-      thumbnailUrl: PropTypes.string.isRequired,
-      comments: PropTypes.array.isRequired,
-      timestamp: PropTypes.string.isRequired
-    }).isRequired
-  };
+  data: PropTypes.shape({
+    username: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string.isRequired,
+    likes: PropTypes.number.isRequired,
+    thumbnailUrl: PropTypes.string.isRequired,
+    comments: PropTypes.array.isRequired,
+    timestamp: PropTypes.string.isRequired
+  }).isRequired
+};
 
-export default PostContainer
+export default PostContainer;
