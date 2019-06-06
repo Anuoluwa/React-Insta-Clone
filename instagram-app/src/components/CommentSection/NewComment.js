@@ -1,17 +1,13 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 export default function NewComment({ handleClick, index }) {
   return (
     <div id ="comment-section" className="newComment">
-      <input placeholder="Add a comment..." 
-      onKeyUp={e => {
-        handleClick(e, index);
-      }} 
+     
+      <form onSubmit={(e)=> handleClick(e, index)}>
+ <input placeholder="Add a comment..." />
+      </form>
       />
     </div>
   );
 }
-NewComment.propTypes = {
-  handleClick: PropTypes.func.isRequired,
-  index: PropTypes.number.isRequired
-};

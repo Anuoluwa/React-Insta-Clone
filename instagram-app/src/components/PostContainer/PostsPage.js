@@ -6,7 +6,8 @@ export default class PostsPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      data: [],
+      comment: '',
     };
   }
 
@@ -31,7 +32,7 @@ export default class PostsPage extends Component {
       data[index].likes++;
       data[index].isLiked = true;
       this.setPostData(data);
-      return this.setState({ data });
+      return this.setState({ data});
     }
 
     if (data[index].isLiked === true) {
@@ -44,19 +45,20 @@ export default class PostsPage extends Component {
 
   
   handleClick = (e, index) => {
-    if (e.key === "Enter") {
+      e.preventDefault()
+    const data1 = e.currentTarget.children[0].value
+    e.currentTarget.reset()
+    if (data1.length > 3) {
       let newComment = {
         username: localStorage.getItem("token"),
-        text: e.target.value
+        text: data1
       };
       let { data } = this.state;
-      console.log(newComment)
       data[index].comments = data[index].comments.concat(newComment);
       this.setPostData(data);
-      this.setState({ data });
+      this.setState({ data, newComment:''});
     }
 };
-
 
   handleSearch = e => {
     this.setState({ data: this.getPostsData() });
@@ -98,36 +100,10 @@ export default class PostsPage extends Component {
     if (this.state.data.length === 0) {
       return (
         <div>
+         <SearchBar handleSearch={this.handleSearch} />
           <p>No Post Found</p>
         </div>
       );
     }
   }
-
-//   render() {
-//     if (this.state.data.length > 0) {
-//       return (
-//         <div className="App">
-//           <SearchBar handleSearch={this.handleSearch} />
-//           {this.state.data.map((data, i) => {
-//             return (
-//               <PostContainer
-//                 key={data.username}
-//                 data={data}
-//                 handleLike={this.handleLike}
-//                 index={i}
-//                 setPostData={this.setPostData}
-//                 handleClick={this.handleClick}
-//               />
-//             );
-//           })}
-//         </div>
-//       );
-//     }
-//     return (
-//       <>
-//         <SearchBar handleSearch={this.handleSearch} />
-//       </>
-//     );
-//   }
 }

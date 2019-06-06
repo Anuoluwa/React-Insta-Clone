@@ -4,8 +4,9 @@ import moment from "moment";
 import PropTypes from "prop-types";
 import "./PostContainer.css";
 import NewComment from "../CommentSection/NewComment";
+import uuid from 'uuid'
 
-function PostContainer({ data, index, handleClick, handleLike }) {
+function PostContainer({ data, index, handleClick, handleLike, createComment, value, commentHandler }) {
   let like = (
     <i
       className="far fa-heart fa-2x"
@@ -53,12 +54,19 @@ function PostContainer({ data, index, handleClick, handleLike }) {
           <p>{data.likes} likes</p>
         </div>
         {data.comments.map(comment => {
-          return <CommentSection key={comment.text} commentData={comment} />;
+          return <CommentSection key={uuid()} commentData={comment} />;
         })}
         <div className="card-time">
           <p>{convertTime(data.timestamp)}</p>
         </div>
-        <NewComment handleClick={handleClick} index={index} />
+        <NewComment 
+        handleClick={handleClick} 
+        index={index} 
+        // createComment={createComment}
+        // value={value}
+        // commentHandler={commentHandler} 
+        
+        />
       </div>
     </div>
   );
