@@ -4,8 +4,14 @@ import moment from "moment";
 import PropTypes from "prop-types";
 import "./PostContainer.css";
 import NewComment from "../CommentSection/NewComment";
-import uuid from 'uuid'
+import uuid from 'uuid';
+import styled from 'styled-components';
 
+
+const StyledContainer = styled.div`
+  
+
+`;
 function PostContainer({ data, index, handleClick, handleLike, createComment, value, commentHandler }) {
   let like = (
     <i
@@ -61,11 +67,7 @@ function PostContainer({ data, index, handleClick, handleLike, createComment, va
         </div>
         <NewComment 
         handleClick={handleClick} 
-        index={index} 
-        // createComment={createComment}
-        // value={value}
-        // commentHandler={commentHandler} 
-        
+        index={index}
         />
       </div>
     </div>
