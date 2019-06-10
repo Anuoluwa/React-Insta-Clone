@@ -1,0 +1,66 @@
+.searchBar {
+  background-color: white;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    border-bottom: 0.1rem solid #e2e3e4;
+  }
+  
+  .logo {
+    display: flex;
+  }
+
+  .logo hr {
+    height: 40px;
+    margin: 2rem 0 ;
+  }
+  
+  .logo i {
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+   
+  }
+  
+  .logo p {
+    padding: 0 1rem;
+    font-family: 'Rochester', cursive;
+    font-weight: 700;
+    font-size: 2rem;
+  }
+  
+  .searchInput {
+    border: 1px solid #e2e3e4;
+    align-items: center;
+    align-items: center;
+    justify-content: center;
+    width: 18%;
+    margin-top: 2rem;
+    display: flex;
+    border-radius: 0.2rem;
+    height: 2rem;
+    text-align: center;
+  }
+  .searchInput i {
+    color: #e2e3e4;
+    padding: 0 0.3rem 0 5rem;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .searchInput input {
+    border: none;
+    color: black;
+    background-color: #fafafa;
+    outline: none;
+    font-size: 1.2rem;
+    text-align: left;
+  }
+  
+  .searchContent i {
+    padding: 0 1.5rem;
+    color: rgb(12, 12, 12);
+    border: none;
+    margin-top: 2rem;
+  }
+  
